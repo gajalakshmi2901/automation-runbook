@@ -6,7 +6,7 @@ resource "azurerm_automation_runbook" "runbook" {
   log_verbose             = true
   log_progress            = true
   runbook_type            = "PowerShell"
-
+depends_on = [ azurerm_resource_group.main_rg, azurerm_automation_account.this]
   content = <<-EOT
 workflow newshutdownstartbytag
 {
